@@ -63,6 +63,8 @@ fn fibonacci() {
     let (mut first, mut second) = (0, 1);
     let mut counter = 1;
     while counter < n {
+        // Was doing a, b = b, a + b but unfortunately that doesn't work? There's a github issue of
+        // destructing assignments. 
         let temp = first;
         first = second;
         second = temp + second;
