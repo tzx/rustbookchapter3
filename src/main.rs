@@ -16,7 +16,7 @@ fn main() {
     match what_to_do {
         1 => temp_converter(),
         2 => fibonacci(), 
-        3 => println!("song func"),
+        3 => cmas_carol(),
         _ => println!("Select a valid number!"),
     }
 }
@@ -71,4 +71,28 @@ fn fibonacci() {
         counter += 1;
     }
     println!("The {}th fibonacci number is {}", n, second);
+}
+
+fn cmas_carol() {
+    let days = ["First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh", "Eighth", "Nineth", "Tenth", "Eleventh", "Twelveth"];
+    let items = ["partidge in a pear tree", "turtle doves", "French hens", "calling birds", "gold rings", "geese a-laying", "swans a-swimming", "maids a-milking", "ladies dancing", "lords a-leaping", "pipers piping", "drummers drumming"];
+    for i in 0..12 {
+        println!("On the {} day of Christmas my true love sent to me", days[i]);
+        if i == 0 {
+            print!("A ");
+        } else {
+            print!("{} ", i+1);
+        }
+        println!("{}", items[i]);
+
+        for j in (0..i).rev() {
+            if j == 0 {
+                print!("And a ");
+            } else {
+                print!("{} ", j+1);
+            }
+            println!("{}", items[j]);
+        }
+        println!("");
+    }
 }
