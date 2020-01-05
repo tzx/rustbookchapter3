@@ -15,7 +15,7 @@ fn main() {
 
     match what_to_do {
         1 => temp_converter(),
-        2 => println!("fib func"),
+        2 => fibonacci(), 
         3 => println!("song func"),
         _ => println!("Select a valid number!"),
     }
@@ -51,4 +51,22 @@ fn temp_converter() {
     } else {
         println!("Not a valid selection!");
     }
+}
+
+fn fibonacci() {
+    let mut n = String::new();
+    println!("Choose your _th fibonacci number:");
+    io::stdin().read_line(&mut n)
+        .expect("Fail to read line");
+    let n:u32 = n.trim().parse()
+        .expect("Not a number!");
+    let (mut first, mut second) = (0, 1);
+    let mut counter = 1;
+    while counter < n {
+        let temp = first;
+        first = second;
+        second = temp + second;
+        counter += 1;
+    }
+    println!("The {}th fibonacci number is {}", n, second);
 }
